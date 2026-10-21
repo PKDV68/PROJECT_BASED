@@ -1,0 +1,314 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Project Based</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: quiet and spacious. One typeface, large type, long pauses between sections, left-aligned with offset text. Alternating plain and tinted bands. Apple-like neutrals with a single blue accent. */
+:root {
+  --bg: #FFFFFF;
+  --surface: #F5F5F7;
+  --fg: #1D1D1F;
+  --muted: #6E6E73;
+  --line: #D2D2D7;
+  --accent: #0066CC;
+  --band: #1D1D1F;
+  --band-ink: #F5F5F7;
+  --band-muted: #A1A1A6;
+  --band-accent: #2997FF;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", system-ui, sans-serif;
+  /* type scale */
+  --t-sm: 13px; --t-md: 15px; --t-base: 17px; --t-lg: 21px; --t-xl: 28px;
+  --t-2xl: clamp(34px, 5.2vw, 56px); --t-hero: clamp(46px, 8.6vw, 104px);
+  --gap-section: clamp(88px, 12vw, 152px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #000000; --surface: #1D1D1F; --fg: #F5F5F7; --muted: #A1A1A6; --line: #424245;
+    --accent: #2997FF; --band: #1D1D1F; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #000000; --surface: #1D1D1F; --fg: #F5F5F7; --muted: #A1A1A6; --line: #424245;
+  --accent: #2997FF; --band: #1D1D1F; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font); font-size: var(--t-base); line-height: 1.65; font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.wrap {
+  max-width: 1040px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+section { padding-block: var(--gap-section); }
+section.tint { background: var(--surface); }
+h1, h2, h3 { font-family: var(--font); font-weight: 600; margin: 0; text-wrap: balance; letter-spacing: -0.035em; line-height: 1.04; }
+h2 { font-size: var(--t-2xl); margin-top: 16px; }
+h3 { font-size: var(--t-xl); letter-spacing: -0.02em; line-height: 1.15; }
+p { margin: 0; max-width: 60ch; text-wrap: pretty; }
+.label { font-size: var(--t-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); }
+.lead { margin-top: 28px; font-size: var(--t-lg); line-height: 1.5; color: var(--muted); max-width: 52ch; }
+
+/* nav */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; gap: 24px; height: 52px; }
+.brand { font-weight: 600; font-size: var(--t-base); letter-spacing: -0.02em; white-space: nowrap; color: var(--fg); text-decoration: none; }
+.nav ul { display: flex; gap: 28px; list-style: none; margin: 0 0 0 auto; padding: 0; overflow-x: auto; scrollbar-width: none; }
+.nav ul::-webkit-scrollbar { display: none; }
+.nav li a { font-size: var(--t-md); font-weight: 500; color: var(--muted); text-decoration: none; white-space: nowrap; padding-block: 6px; }
+.nav li a:hover { color: var(--fg); }
+@media (max-width: 560px) { .nav .wrap { gap: 16px; } .nav ul { gap: 20px; } }
+
+/* hero */
+.hero { padding-block: clamp(72px, 11vw, 140px) clamp(88px, 12vw, 152px); position: relative; }
+.hero h1 { font-size: var(--t-hero); line-height: 1; letter-spacing: -0.045em; max-width: 12ch; margin-top: 22px; }
+.hero h1 span { color: var(--accent); }
+.hero .lead { margin: 48px 0 0 auto; width: min(100%, 540px); color: var(--fg); }
+@media (max-width: 800px) { .hero .lead { margin-left: 0; margin-top: 36px; } }
+
+/* two-column sections */
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; }
+@media (max-width: 800px) { .split { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
+.split .body { display: grid; gap: 20px; align-content: start; padding-top: 8px; color: var(--muted); }
+.split .body p:first-child { color: var(--fg); font-size: var(--t-lg); line-height: 1.5; }
+.formats { margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--fg); font-weight: 500; }
+.formats span { color: var(--muted); font-weight: 400; display: block; font-size: var(--t-md); margin-bottom: 6px; }
+
+/* ruled rows */
+.rows { margin-top: 56px; }
+.row { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 40px; padding-block: 32px; border-top: 1px solid var(--line); }
+.row:last-child { border-bottom: 1px solid var(--line); }
+.row .tag { display: block; margin-bottom: 8px; font-size: var(--t-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+.row p { color: var(--muted); }
+@media (max-width: 800px) { .row { grid-template-columns: minmax(0, 1fr); gap: 12px; } }
+.note { margin-top: 28px; font-size: var(--t-md); color: var(--muted); }
+
+/* partners */
+.bento { margin-top: 56px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px 48px; }
+.bento > div { min-width: 0; }
+.bento .big { grid-row: span 2; background: var(--surface); border-radius: 20px; padding: clamp(24px, 4vw, 44px); }
+.bento .small { padding-top: 20px; border-top: 1px solid var(--line); }
+.bento h3 { margin-bottom: 16px; }
+.bento ul { margin: 0; padding-left: 20px; display: grid; gap: 10px; color: var(--muted); }
+.bento li::marker { color: var(--accent); }
+.bento .big ul { gap: 16px; font-size: var(--t-lg); line-height: 1.4; color: var(--fg); }
+@media (max-width: 800px) { .bento { grid-template-columns: minmax(0, 1fr); } .bento .big { grid-row: auto; } }
+
+/* team */
+.team { margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0; }
+.team > div { padding: 22px 20px 22px 0; border-top: 1px solid var(--line); min-width: 0; }
+.team .who { font-weight: 700; font-size: var(--t-lg); letter-spacing: -0.02em; }
+.team .role { margin-top: 2px; color: var(--muted); font-size: var(--t-md); }
+.rules { margin: 48px 0 0; padding: 0; list-style: none; display: grid; gap: 14px; max-width: 62ch; color: var(--muted); }
+.rules li { padding-left: 24px; position: relative; }
+.rules li::before { content: ""; position: absolute; left: 0; top: 0.85em; width: 12px; height: 2px; background: var(--accent); }
+
+/* contact */
+.contact { background: var(--band); color: var(--band-ink); }
+.contact .label { color: var(--band-accent); }
+.contact h2 { color: var(--band-ink); }
+.contact h2 { max-width: 15ch; }
+.contact p { margin-top: 24px; font-size: var(--t-lg); line-height: 1.5; }
+.contact .contact-box { margin-top: 36px; padding-block: 16px; border-top: 1px solid var(--band-muted); border-bottom: 1px solid var(--band-muted); color: var(--band-muted); font-size: var(--t-base); font-weight: 500; }
+footer { padding-block: 32px; font-size: var(--t-md); color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+</style>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Project Based</a>
+    <ul>
+      <li><a href="#name">The idea</a></li>
+      <li><a href="#why">Why Kleve</a></li>
+      <li><a href="#areas">Areas</a></li>
+      <li><a href="#format">Format</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="label">Student projects in Kreis Kleve</p>
+      <h1>Build real projects with <span>local companies</span></h1>
+      <p class="lead">Project Based is a non-profit that gives students real briefs from companies in the region. Together with HSRW, we run events and collaborations where teams build something and show it.</p>
+    </div>
+  </section>
+
+  <section class="tint" id="name">
+    <div class="wrap split">
+      <div>
+        <p class="label">The name</p>
+        <h2>The project is the point</h2>
+      </div>
+      <div class="body">
+        <p>Hackathons and datathons are two ways to run a project. We are not limited to them.</p>
+        <p>Every Project Based activity has the same core: a real brief from a company, a team of students, and something built at the end. How long it lasts and what it produces depends on the brief. Some are a single event with a deadline and a jury. Others are research roles that run alongside a company for longer.</p>
+        <div class="formats">
+          <span>Formats we plan to run</span>
+          Hackathons, datathons, product and simulation challenges, competitions and paid research collaborations
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap split">
+      <div>
+        <p class="label">Why Kleve</p>
+        <h2>Students here travel far to take part</h2>
+      </div>
+      <div class="body">
+        <p>Kreis Kleve has no regular events where students work on real projects. A student who wants to enter a competition has to leave town, and the companies in the region never see what that student can do.</p>
+        <p>Those same companies are looking for skilled students. Neither side has a place to meet and work on a problem together.</p>
+        <p>HSRW is already moving toward more project work and contact with industry. A series of events in Kleve fits that direction and gives local students a reason to stay.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint" id="areas">
+    <div class="wrap">
+      <p class="label">Project areas</p>
+      <h2 style="max-width:18ch">Built around the faculties at HSRW</h2>
+      <p class="lead">HSRW is mainly an engineering university, so a plain software hackathon would leave most students out. Each project area gives a different faculty something to build.</p>
+
+      <div class="rows">
+        <article class="row">
+          <div><span class="tag">Data</span><h3>Data analysis and machine learning</h3></div>
+          <p>Teams read a real data set, clean it and use code to answer a question a company actually has. It ties to the university's newer data-focused engineering degree.</p>
+        </article>
+        <article class="row">
+          <div><span class="tag">Hardware</span><h3>Product development and simulation</h3></div>
+          <p>Teams design a product in CAD, simulate it, then connect sensors and microcontrollers into a working prototype. It rewards students who move between mechanics, electronics and code.</p>
+        </article>
+        <article class="row">
+          <div><span class="tag">Life sciences</span><h3>Genetics and bio simulation</h3></div>
+          <p>Bioengineering students model proteins, or simulate how a drug is cultured and how quickly it is metabolised. The result is a model they can explain and defend.</p>
+        </article>
+        <article class="row">
+          <div><span class="tag">Industry</span><h3>Research collaborations</h3></div>
+          <p>Paid research roles let a small group of students work with a company on a problem or product it wants to explore. This is where a single event can turn into a longer relationship.</p>
+        </article>
+      </div>
+      <p class="note">More areas will follow as other faculties get involved.</p>
+    </div>
+  </section>
+
+  <section id="format">
+    <div class="wrap">
+      <p class="label">How a project runs</p>
+      <h2 style="max-width:18ch">A draft format for the first event</h2>
+      <div class="rows">
+        <div class="row"><div><span class="tag">Phase 1</span><h3>Brief</h3></div><p>A company submits a problem. The organisers turn it into a challenge in one of the project areas.</p></div>
+        <div class="row"><div><span class="tag">Phase 2</span><h3>Team</h3></div><p>Students register and form teams that mix programs.</p></div>
+        <div class="row"><div><span class="tag">Phase 3</span><h3>Build</h3></div><p>Teams work on site in Kleve with mentors from the company and the university.</p></div>
+        <div class="row"><div><span class="tag">Phase 4</span><h3>Show</h3></div><p>Teams present to a jury of professors and company staff. Strong teams are introduced to the sponsors.</p></div>
+      </div>
+      <p class="note">Dates, length, venue and prizes are still open. This format is a proposal to agree with HSRW and the first sponsors.</p>
+    </div>
+  </section>
+
+  <section class="tint" id="start">
+    <div class="wrap split">
+      <div>
+        <p class="label">Where we start</p>
+        <h2>Starting at HSRW, growing outward</h2>
+      </div>
+      <div class="body">
+        <p>The first projects take place in Kleve with HSRW students and companies from Kreis Kleve. As the series grows, other universities in the region and companies from across NRW can join.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners">
+    <div class="wrap">
+      <p class="label">Who it is for</p>
+      <h2 style="max-width:18ch">What each partner gets</h2>
+      <div class="bento">
+        <div class="big">
+          <h3>Companies and sponsors</h3>
+          <ul>
+            <li>A direct line to motivated students before they graduate</li>
+            <li>A real problem worked on by several teams at once</li>
+            <li>Paid research roles for deeper work on a product or question</li>
+            <li>Visibility in the region</li>
+          </ul>
+        </div>
+        <div class="small">
+          <h3>Professors and the university</h3>
+          <ul>
+            <li>Project-based learning outside the lecture hall</li>
+            <li>Advisor and jury roles in each project area</li>
+            <li>Closer ties to local industry</li>
+          </ul>
+        </div>
+        <div class="small">
+          <h3>Students</h3>
+          <ul>
+            <li>Real briefs instead of textbook exercises</li>
+            <li>Teams that mix programs</li>
+            <li>Portfolio work and contacts for a CV, and paid roles for the strongest teams</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint" id="team">
+    <div class="wrap split">
+      <div>
+        <p class="label">The team</p>
+        <h2>Students from different programs, with work experience</h2>
+      </div>
+      <div class="body">
+        <p>Each member studies a different field and has worked, or is working, in it. That lets the team judge what each project needs and what industry expects from students.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="team">
+        <div><div class="who">Ahmad Azzeh</div><div class="role">Founder, Chief Officer</div></div>
+        <div><div class="who">Pablo</div><div class="role">Logistics</div></div>
+        <div><div class="who">Antonio</div><div class="role">Logistics</div></div>
+        <div><div class="who">Jakov</div><div class="role">Technical</div></div>
+        <div><div class="who">Marco</div><div class="role">Legal and accounting</div></div>
+      </div>
+      <ul class="rules">
+        <li>Large financial decisions go to the founder.</li>
+        <li>Jobs and salaries need approval from Ahmad, Marco and Jakov.</li>
+        <li>Small spending that fits the mission can be decided without a board vote, within a fixed limit.</li>
+        <li>Professors from HSRW are being approached as advisors for each project area.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="label">Next step</p>
+      <h2>Help us run the first project in Kleve</h2>
+      <p>We are looking for a university sponsor or advisor, two or three companies willing to set a brief, and a venue. If you can help with any of these, we would like to talk.</p>
+      <p class="contact-box">Contact details to be added by the team</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Project Based, Kleve</span>
+    <span>Draft for investors and professors</span>
+  </div>
+</footer>
+
+</body></html>
