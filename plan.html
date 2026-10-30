@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="The draft format for the first Project Based event in Kleve.">
+<title>Event Plan · Project Based</title>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Project Based</a>
+    <ul>
+      <li><a href="index.html#mission">Mission</a></li>
+      <li><a href="index.html#why">Why us</a></li>
+      <li><a href="index.html#fields">Fields</a></li>
+      <li><a href="index.html#partners">Partners</a></li>
+      <li><a href="index.html#team">Team</a></li>
+      <li><a href="index.html#sponsors">Sponsors</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+    </ul>
+    <a class="btn btn-primary nav-cta" href="plan.html" aria-current="page">View plan</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="label">How a project runs</p>
+      <h1>A draft format for the first event</h1>
+      <p class="lead">How the first Project Based event in Kleve is planned to run, from the brief to the jury. Dates and details are still being set.</p>
+      <ul class="facts">
+        <li><b>Where</b><span>On site in Kleve</span></li>
+        <li><b>What</b><span>Engineering challenge</span></li>
+        <li><b>Who</b><span>Mixed student teams</span></li>
+        <li><b>Finale</b><span>Jury presentation</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="tint" id="format">
+    <div class="wrap">
+      <p class="label">Four phases</p>
+      <h2 style="max-width:18ch">From brief to jury</h2>
+      <ol class="timeline">
+        <li class="phase">
+          <span class="num">01</span>
+          <div class="card"><span class="tag">Phase 1</span><h3>Brief</h3><p>An engineering challenge is announced.</p></div>
+        </li>
+        <li class="phase">
+          <span class="num">02</span>
+          <div class="card"><span class="tag">Phase 2</span><h3>Team</h3><p>Students register and form teams that mix programs.</p></div>
+        </li>
+        <li class="phase">
+          <span class="num">03</span>
+          <div class="card"><span class="tag">Phase 3</span><h3>Build</h3><p>Teams work on site in Kleve.</p></div>
+        </li>
+        <li class="phase">
+          <span class="num">04</span>
+          <div class="card"><span class="tag">Phase 4</span><h3>Show</h3><p>Teams present their work to a jury.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <p class="label">Next step</p>
+      <h2>Get the full event details</h2>
+      <p>Download the event details PDF, or tell us how you would like to support the first event.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="downloads.html">Go to downloads <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="index.html">Back to home</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot" id="updates">
+  <div class="wrap foot-grid">
+    <address class="foot-col">Project Based gUG<br>Kleve<br>North Rhine-Westphalia<br>Germany</address>
+    <div class="foot-col foot-links">
+      <nav aria-label="Footer">
+        <a href="index.html#mission">Mission</a>
+        <a href="index.html#fields">Fields</a>
+        <a href="plan.html">Event plan</a>
+        <a href="downloads.html">Downloads</a>
+      </nav>
+      <dl class="foot-mail">
+        <div><dt>General enquiries</dt><dd><a href="mailto:contact@projectbased.de">contact@projectbased.de</a></dd></div>
+        <div><dt>New business</dt><dd><a href="mailto:business@projectbased.de">business@projectbased.de</a></dd></div>
+      </dl>
+    </div>
+    <div class="foot-sub">
+      <h2>Stay updated on<br>the first event</h2>
+      <!-- sign-up handled by php/updates-form.php; "page" tells it where to return -->
+      <form class="foot-form" action="php/updates-form.php" method="post">
+        <input type="hidden" name="page" value="plan">
+        <label class="sr-only" for="foot-email">Your email</label>
+        <input id="foot-email" name="email" type="email" placeholder="Your email" autocomplete="email" required maxlength="160">
+        <div class="hp" aria-hidden="true"><label for="foot-website">Leave this field empty</label><input id="foot-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <button type="submit" aria-label="Sign up for event updates"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+      </form>
+      <p class="foot-status" id="foot-status" role="status" hidden></p>
+      <p class="foot-note">We only email about Project Based events. By signing up you agree to us storing your email for this, see our <a href="privacy.html">privacy policy</a>.</p>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy;2026 Project Based gUG</span>
+    <nav class="foot-legal" aria-label="Legal"><a href="legal-notice.html">Legal notice</a><a href="privacy.html">Privacy policy</a></nav>
+    <span>Built in Kleve with <span class="heart" aria-label="love">&hearts;</span></span>
+    <a class="to-top" href="#" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V5M6 11l6-6 6 6"/></svg></a>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

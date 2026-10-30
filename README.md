@@ -1,33 +1,40 @@
-# Project Based
+# Project Based website
 
-Project Based is a student-led non-profit initiative in Kleve, Germany. We organise hackathons, datathons and challenge events where interdisciplinary student teams work on real problems posed by companies and research institutions in the Lower Rhine region. The first events are planned at Hochschule Rhein-Waal (HSRW) in Kleve, with the first one targeted for 2027. Dates, venue and prizes are still open and will be agreed with HSRW and our first partners.
+```
+project-based/
+├── index.html            Home: hero, mission, why us, fields, plan teaser, partners, team, sponsors
+├── plan.html             First event format (linked from "View plan")
+├── downloads.html        Documents to download + support form
+├── fields/               One page per field card (page tree + tabs, incl. Get in contact)
+├── assets/               Everything visual
+│   ├── css/
+│   │   ├── tokens.css    Font (Segoe UI), red + grey colours, type scale  ← change the look here
+│   │   ├── base.css      Reset, layout, header, buttons, footer, motion (all pages)
+│   │   ├── home.css      Sections used only on index.html
+│   │   └── pages.css     plan.html and downloads.html
+│   ├── js/main.js        Ribbon, scroll reveal, nav highlight, form status
+│   ├── fonts/            Self-hosted graffiti font for the PRB mark (licence in OFL.txt)
+│   ├── img/              Self-hosted images (Kleve photo, CC BY-SA 2.0)
+│   └── docs/             PDFs offered on the site, built from docs/source/*.html
+└── php/                  Server side only
+    ├── support-form.php  Receives the support form, saves to CSV, emails contact@projectbased.de
+    ├── contact-form.php  Receives the field-page contact form, emails contact@projectbased.de
+    ├── updates-form.php  Receives the footer "Stay updated" sign-up, saves to CSV, emails contact@projectbased.de
+    ├── config.php        Email address, storage path, allowed support types
+    ├── lib/helpers.php
+    └── storage/          support-requests.csv is written here (blocked from the web)
+```
 
-## What is in this repository
+## Before going live
+- PDFs are written as HTML in `assets/docs/source/` and printed to `assets/docs/` (same name, `.pdf`). Edit the HTML, then run
+  `powershell -ExecutionPolicy Bypass -File assets/docs/source/build-pdfs.ps1` (add names like `event-details` to build only those).
+  For a new document copy `_template.html`; the header band, footer and page numbers are added by `document.js`, the styles live in `document.css`.
+  A page with too much content gets a red outline in the PDF.
+  Forms come out fillable on screen: every `.box`, tick-list item and signature line becomes a PDF form field automatically
+  (`add-fields.py`, needs Python with `pypdf`: `python -m pip install pypdf`). Without pypdf the PDFs still build, just not fillable.
+- Emails go to the addresses in `php/config.php` (`mail_to`, `contact_to`) and are sent from `mail_from` (no-reply@projectbased.de). Every form is also saved as CSV in `php/storage/`.
+- PHP `mail()` must be enabled on the host. If emails don't arrive, ask the host to set up sending for projectbased.de (SPF/DKIM) or switch to SMTP.
+- The `.htaccess` files assume Apache. On nginx, deny `php/storage/`, `php/lib/` and `php/config.php` in the server config.
+- Sponsor logos: replace the text inside `.logo-plate` / `.sponsor-tile` in `index.html` with `<img src="assets/img/name.svg" alt="Company">`.
 
-- `index.html`: the Project Based website, a single self-contained page covering the mission, why we exist, project areas, event format, partners and team.
-- `Project-Based_JSC_one-pager_EN.pdf`: English one-pager sponsorship proposal for the Jülich Supercomputing Centre (JSC).
-- `Project-Based_JSC_one-pager_DE.pdf`: the same one-pager in German.
-
-## How a project runs
-
-Every project follows four phases. A company submits a real problem and the organisers turn it into a challenge (brief). Students then register and form mixed teams (team), build a solution on site in Kleve with mentors from the company (build), and finally present to a jury of company staff (show). Some projects are a single event with a deadline, others are longer paid research collaborations.
-
-## Project areas
-
-The areas are built around the faculties at HSRW, so that students beyond software also have something to build: data analysis and machine learning, hardware and product development with simulation, life sciences such as genetics and bio simulation, and industry research collaborations. More areas will follow as other faculties get involved.
-
-## Running the site locally
-
-There is no build step. Download the repository and open `index.html` in any browser. The page loads its fonts from Google Fonts, so an internet connection is needed for the intended typography.
-
-## Team
-
-Ahmad Azzeh (founder, chief officer), Pablo (logistics), Antonio (logistics), Jakov (technical) and Marco (legal and accounting).
-
-## Get involved
-
-We are looking for university supporters, two or three companies willing to set a brief, and a venue for the first event. If you can help with any of these, write to ahmadazzeh04@gmail.com.
-
-## Photo credits
-
-Photos on the site come from Wikimedia Commons and are credited next to each image, under CC BY, CC BY-SA or public domain licences.
+- Everything loads from this server, nothing from Google or other providers (see privacy.html, section 6). Keep it that way: put new fonts in `assets/fonts/` and images in `assets/img/`.
