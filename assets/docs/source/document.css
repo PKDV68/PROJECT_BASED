@@ -1,0 +1,89 @@
+/* Shared print styles for every Project Based PDF (A4). Matches the website: Segoe UI, red gradient, grey accents.
+   Building blocks are listed in _template.html. The header band and footer are added by document.js. */
+@font-face {
+  font-family: "Sedgwick Ave Display"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../../fonts/sedgwick-ave-display-latin.woff2") format("woff2");
+}
+@page { size: A4; margin: 0; }
+:root {
+  --fg: #1B1B1F; --muted: #62626B; --line: #E4E4E8; --grey-1: #FAFAFB; --grey-2: #EFEFF2; --grey-3: #D9D9DE;
+  --accent: #C8102E; --accent-hi: #E8394A; --accent-lo: #9E0B22;
+  --grad-red: linear-gradient(135deg, var(--accent-hi) 0%, var(--accent) 55%, var(--accent-lo) 100%);
+  --font: "Segoe UI", "Segoe UI Variable Text", -apple-system, system-ui, Arial, sans-serif;
+}
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html, body { margin: 0; background: #FFFFFF; color: var(--fg); font-family: var(--font); font-size: 10.5pt; line-height: 1.4; }
+
+.page { position: relative; width: 210mm; height: 297mm; overflow: hidden; page-break-after: always; break-after: page;
+  background: linear-gradient(180deg, #FFFFFF 70%, var(--grey-1) 100%); }
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+/* header band: red gradient with the graffiti mark from the card backs */
+.band { position: relative; height: 28mm; padding: 7mm 18mm 0; overflow: hidden; color: #FFFFFF; background: var(--grad-red); }
+.band::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgb(255 255 255 / 0.18), transparent 45%); }
+.band::after { content: "PRB"; position: absolute; right: -6mm; top: -14mm; font-family: "Sedgwick Ave Display", cursive; font-size: 46mm; line-height: 1; color: rgb(255 255 255 / 0.12); transform: rotate(-8deg); }
+.band .brand { position: relative; z-index: 1; margin: 0; font-size: 24pt; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+.band .tagline { position: relative; z-index: 1; margin: 1.5mm 0 0; font-size: 10pt; color: rgb(255 255 255 / 0.88); }
+.band-edge { height: 2.2mm; background: linear-gradient(90deg, var(--grey-3), var(--grey-2) 40%, #FFFFFF); }
+
+.body { padding: 7mm 18mm 0; }
+h1 { margin: 0; font-size: 18pt; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
+.intro { margin: 1.5mm 0 0; max-width: 150mm; color: var(--muted); }
+
+/* text fields */
+.fields { margin-top: 5mm; display: grid; gap: 2.4mm; }
+.fieldrow { display: grid; grid-template-columns: 50mm 1fr; align-items: center; gap: 4mm; }
+.box { height: 6.4mm; border: 1px solid var(--grey-3); border-radius: 1.6mm; background: linear-gradient(180deg, #FFFFFF, var(--grey-1)); }
+.box.tall { height: 15mm; }
+
+/* section label: red caps with a fading rule, like the sponsor tiers on the site */
+h2 { display: flex; align-items: center; gap: 3mm; margin: 4.6mm 0 2.2mm; font-size: 9pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+h2::before { content: ""; width: 2mm; height: 2mm; border-radius: 50%; background: var(--grad-red); }
+h2::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--grey-3), transparent); }
+.continued h1 + h2 { margin-top: 4mm; }
+
+/* tick list */
+ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.6mm; }
+li { display: flex; align-items: center; gap: 3.5mm; }
+li::before { content: ""; flex: none; width: 4mm; height: 4mm; border: 1.2px solid #9A9AA3; border-radius: 1mm; background: #FFFFFF; }
+li .box { flex: 1; height: 5.6mm; }
+
+.comments { margin-top: 4mm; }
+.comments p { margin: 0 0 1.8mm; }
+
+/* footer */
+.foot { position: absolute; left: 18mm; right: 18mm; bottom: 10mm; display: flex; justify-content: space-between; padding-top: 2.5mm; font-size: 8pt; color: var(--muted); }
+.foot::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, var(--accent), rgb(200 16 46 / 0.25) 40%, var(--grey-3)); }
+
+/* longer free-text box under an option, indented to line up with the option text */
+.detail { margin: 1.8mm 0 0 7.5mm; }
+.detail span { display: block; margin-bottom: 1.2mm; font-size: 9pt; color: var(--muted); }
+.box.xl { height: 26mm; }
+
+/* binding declaration with signature lines */
+.declaration { margin-top: 5mm; padding: 4mm 5mm 4.5mm; border: 1px solid rgb(200 16 46 / 0.35); border-radius: 2.5mm; background: linear-gradient(135deg, #FDEDEF 0%, #FFFFFF 55%, var(--grey-1) 100%); }
+.declaration h2 { margin-top: 0; }
+.declaration p { margin: 0 0 1.6mm; font-size: 9.5pt; }
+.sign { margin-top: 11mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 7mm; }
+.sign span { padding-top: 1.5mm; border-top: 1px solid var(--fg); font-size: 8.5pt; color: var(--muted); }
+
+/* ---- text documents (event details, info packs) ---- */
+.body > p:not(.intro) { margin: 0 0 2.4mm; }
+.body > p.lead { font-size: 12pt; line-height: 1.45; color: var(--fg); max-width: 160mm; }
+.muted { color: var(--muted); }
+
+/* plain bullet list: <ul class="bullets"> (a normal <ul> gets tick boxes) */
+ul.bullets li::before { width: 1.6mm; height: 1.6mm; border: 0; border-radius: 50%; background: var(--grad-red); }
+
+/* numbered steps: <ol class="steps"><li><b>Title</b> text</li></ol> */
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.4mm; counter-reset: step; }
+ol.steps li { counter-increment: step; display: grid; grid-template-columns: 11mm 1fr; align-items: start; padding: 3mm 4mm; border: 1px solid var(--line); border-radius: 2mm; background: linear-gradient(135deg, #FFFFFF, var(--grey-1)); }
+ol.steps li::before { content: counter(step, decimal-leading-zero); width: auto; height: auto; border: 0; border-radius: 0; background: none; font-size: 9pt; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); padding-top: 0.6mm; }
+ol.steps b { display: block; font-size: 11pt; font-weight: 600; }
+
+/* highlighted note: <div class="note">...</div> */
+.note { margin-top: 4mm; padding: 3.5mm 5mm; border-left: 1mm solid var(--accent); border-radius: 0 2mm 2mm 0; background: linear-gradient(90deg, #FDEDEF, #FFFFFF 80%); font-size: 9.5pt; }
+
+/* a page whose content runs past the footer (set by document.js) */
+.page.overflow { outline: 2mm solid var(--accent); outline-offset: -2mm; }
+.page.overflow::after { content: "Content runs past the footer: shorten it or move some to a new page"; position: absolute; left: 18mm; right: 18mm; bottom: 3mm; font-size: 8pt; font-weight: 700; color: var(--accent); }

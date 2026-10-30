@@ -1,0 +1,4 @@
+# Only the form handler is reachable from the web.
+<FilesMatch "^(config|helpers)\.php$">
+  Require all denied
+</FilesMatch>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Event documents and the support form for Project Based.">
+<title>Downloads · Project Based</title>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Project Based</a>
+    <ul>
+      <li><a href="index.html#mission">Mission</a></li>
+      <li><a href="index.html#why">Why us</a></li>
+      <li><a href="index.html#fields">Fields</a></li>
+      <li><a href="index.html#partners">Partners</a></li>
+      <li><a href="index.html#team">Team</a></li>
+      <li><a href="index.html#sponsors">Sponsors</a></li>
+      <li><a href="downloads.html" aria-current="page">Downloads</a></li>
+    </ul>
+    <a class="btn btn-primary nav-cta" href="plan.html">View plan</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="label">Downloads</p>
+      <h1>Documents and forms</h1>
+      <p class="lead">Everything you need about the first event in one place. Download the documents, or fill in the support form and we will get back to you.</p>
+    </div>
+  </section>
+
+  <section class="tint" id="documents">
+    <div class="wrap">
+      <p class="label">Documents</p>
+      <h2>Download</h2>
+      <!-- PDF file icon, reused by every row below with <use href="#i-pdf"> -->
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-pdf" viewBox="0 0 16 20">
+          <path d="M1.5.5h9l4 4v15h-13z" fill="#FFFFFF" stroke="#9A9AA3"/>
+          <path d="M10.5.5v4h4" fill="#EFEFF2" stroke="#9A9AA3" stroke-linejoin="round"/>
+          <rect x="0" y="10" width="12.5" height="6" rx="1" fill="#C8102E"/>
+          <text x="6.25" y="14.7" font-size="4.8" font-weight="700" text-anchor="middle" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif">PDF</text>
+        </symbol>
+      </svg>
+      <!-- To add a document: drop the PDF in assets/docs/ and copy one <li> -->
+      <ul class="files">
+        <li class="files-head" aria-hidden="true"><span>Title</span><span>File</span><span>Type</span></li>
+        <li><a class="file" href="assets/docs/event-details.pdf" download>
+          <span class="file-title">Event details <small>Format, phases and practical information</small></span>
+          <span class="file-name">event-details.pdf</span>
+          <svg class="file-icon" role="img" aria-label="PDF"><use href="#i-pdf"/></svg>
+        </a></li>
+        <li><a class="file" href="assets/docs/sponsor-info.pdf" download>
+          <span class="file-title">Sponsor info pack <small>What sponsors get and how to get involved</small></span>
+          <span class="file-name">sponsor-info.pdf</span>
+          <svg class="file-icon" role="img" aria-label="PDF"><use href="#i-pdf"/></svg>
+        </a></li>
+        <li><a class="file" href="assets/docs/general-support-form.pdf" download>
+          <span class="file-title">General support form <small>For companies and organisations</small></span>
+          <span class="file-name">general-support-form.pdf</span>
+          <svg class="file-icon" role="img" aria-label="PDF"><use href="#i-pdf"/></svg>
+        </a></li>
+        <li><a class="file" href="assets/docs/academic-supporter-form.pdf" download>
+          <span class="file-title">Academic supporter form <small>For professors and academic staff</small></span>
+          <span class="file-name">academic-supporter-form.pdf</span>
+          <svg class="file-icon" role="img" aria-label="PDF"><use href="#i-pdf"/></svg>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="wrap split">
+      <div class="support-copy">
+        <p class="label">Support form</p>
+        <h2>Support the first event</h2>
+        <p>Tell us how you would like to help. We read every request and reply by email.</p>
+        <ul>
+          <li>Sponsor the event or a prize</li>
+          <li>Join as a mentor or jury member</li>
+          <li>Offer a venue, equipment or a real brief</li>
+        </ul>
+      </div>
+
+      <form class="form" action="php/support-form.php" method="post">
+        <p class="form-status" id="form-status" role="status" hidden></p>
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required maxlength="120">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required maxlength="160">
+          </div>
+        </div>
+        <div class="field">
+          <label for="organisation">Company or organisation <span class="opt">(optional)</span></label>
+          <input id="organisation" name="organisation" type="text" autocomplete="organization" maxlength="160">
+        </div>
+        <fieldset class="field">
+          <legend>How would you like to support?</legend>
+          <div class="chips">
+            <label><input type="radio" name="support_type" value="sponsor" required><span>Sponsor</span></label>
+            <label><input type="radio" name="support_type" value="mentor"><span>Mentor or jury</span></label>
+            <label><input type="radio" name="support_type" value="venue"><span>Venue or equipment</span></label>
+            <label><input type="radio" name="support_type" value="brief"><span>Provide a brief</span></label>
+            <label><input type="radio" name="support_type" value="other"><span>Other</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="message">Message <span class="opt">(optional)</span></label>
+          <textarea id="message" name="message" maxlength="3000"></textarea>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="website">Leave this field empty</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <label class="check"><input type="checkbox" name="consent" value="1" required> I agree to Project Based storing these details to reply to my request (see the <a href="privacy.html">privacy policy</a>).</label>
+        <button class="btn btn-primary" type="submit">Send request <span class="arrow" aria-hidden="true">→</span></button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot" id="updates">
+  <div class="wrap foot-grid">
+    <address class="foot-col">Project Based gUG<br>Kleve<br>North Rhine-Westphalia<br>Germany</address>
+    <div class="foot-col foot-links">
+      <nav aria-label="Footer">
+        <a href="index.html#mission">Mission</a>
+        <a href="index.html#fields">Fields</a>
+        <a href="plan.html">Event plan</a>
+        <a href="downloads.html">Downloads</a>
+      </nav>
+      <dl class="foot-mail">
+        <div><dt>General enquiries</dt><dd><a href="mailto:contact@projectbased.de">contact@projectbased.de</a></dd></div>
+        <div><dt>New business</dt><dd><a href="mailto:business@projectbased.de">business@projectbased.de</a></dd></div>
+      </dl>
+    </div>
+    <div class="foot-sub">
+      <h2>Stay updated on<br>the first event</h2>
+      <!-- sign-up handled by php/updates-form.php; "page" tells it where to return -->
+      <form class="foot-form" action="php/updates-form.php" method="post">
+        <input type="hidden" name="page" value="downloads">
+        <label class="sr-only" for="foot-email">Your email</label>
+        <input id="foot-email" name="email" type="email" placeholder="Your email" autocomplete="email" required maxlength="160">
+        <div class="hp" aria-hidden="true"><label for="foot-website">Leave this field empty</label><input id="foot-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <button type="submit" aria-label="Sign up for event updates"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+      </form>
+      <p class="foot-status" id="foot-status" role="status" hidden></p>
+      <p class="foot-note">We only email about Project Based events. By signing up you agree to us storing your email for this, see our <a href="privacy.html">privacy policy</a>.</p>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>&copy;2026 Project Based gUG</span>
+    <nav class="foot-legal" aria-label="Legal"><a href="legal-notice.html">Legal notice</a><a href="privacy.html">Privacy policy</a></nav>
+    <span>Built in Kleve with <span class="heart" aria-label="love">&hearts;</span></span>
+    <a class="to-top" href="#" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V5M6 11l6-6 6 6"/></svg></a>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

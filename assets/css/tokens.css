@@ -1,0 +1,50 @@
+/* Design tokens: fonts, colours and the type scale. Every other stylesheet reads from these.
+   White pages, soft grey gradients for depth, one red accent for highlights and actions. */
+
+/* graffiti display font, only used for the "PRB" mark on the card backs */
+/* graffiti font for the PRB card mark, hosted here (licence: assets/fonts/OFL.txt) */
+@font-face {
+  font-family: "Sedgwick Ave Display"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/sedgwick-ave-display-latin.woff2") format("woff2");
+}
+
+:root {
+  /* neutrals */
+  --bg: #FFFFFF;
+  --surface: #F6F6F7;
+  --fg: #1B1B1F;
+  --muted: #62626B;
+  --line: #E4E4E8;
+  --grey-1: #FAFAFB;
+  --grey-2: #EFEFF2;
+  --grey-3: #D9D9DE;
+
+  /* red accent */
+  --accent: #C8102E;
+  --accent-hi: #E8394A;
+  --accent-lo: #9E0B22;
+  --accent-soft: #FDEDEF;
+  --glow: #E8394A;
+
+  --ok: #1F7A45;
+  --err: #C8102E;
+
+  /* gradients */
+  --grad-red: linear-gradient(135deg, var(--accent-hi) 0%, var(--accent) 55%, var(--accent-lo) 100%);
+  --grad-grey: linear-gradient(180deg, var(--grey-1) 0%, var(--grey-2) 100%);
+  --grad-band: linear-gradient(180deg, #FFFFFF 0%, #F4F4F6 45%, #E9E9ED 100%);
+
+  /* the "Why us" photo band stays dark so the photo reads */
+  --photo-shade: 24 24 28;
+
+  --fade: transparent;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --font: "Segoe UI", "Segoe UI Variable Text", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* type scale */
+  --t-sm: 13px; --t-md: 15px; --t-base: 17px; --t-lg: 21px; --t-xl: 28px;
+  --t-2xl: clamp(34px, 5.2vw, 56px); --t-hero: clamp(46px, 8.6vw, 104px);
+  --gap-section: clamp(88px, 12vw, 152px);
+
+  color-scheme: light;
+}

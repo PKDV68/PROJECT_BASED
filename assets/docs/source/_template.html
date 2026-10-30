@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project Based Document Title</title>
+<!--
+  Template for a new Project Based PDF.
+  1. Copy this file in this folder and rename it, e.g. venue-info.html. The PDF gets the same name (venue-info.pdf).
+     Files starting with "_" (like this one) are skipped by the build.
+  2. Change the <title> and write the content inside <div class="body">. Each <section class="page"> is one A4 page.
+     The red header band and the footer with page numbers are added automatically.
+  3. Run build-pdfs.ps1 in this folder. The PDF lands in assets/docs/.
+  If a page has too much content it gets a red outline in the PDF: shorten it or move some content to a new page.
+  Every box, tick box and signature line becomes a fillable field in the PDF automatically.
+  Delete the building blocks you don't need.
+-->
+<link rel="stylesheet" href="document.css">
+<script src="document.js"></script>
+</head>
+<body>
+
+<!-- page 1 -->
+<section class="page">
+  <div class="body">
+    <h1>Document title</h1>
+    <p class="intro">One or two sentences under the title, in grey.</p>
+
+    <h2>Section heading</h2>
+    <p class="lead">A larger opening paragraph.</p>
+    <p>A normal paragraph. Use <b>bold</b> for emphasis.</p>
+
+    <h2>Bullet list</h2>
+    <ul class="bullets">
+      <li>A point</li>
+      <li>Another point</li>
+    </ul>
+
+    <h2>Numbered steps</h2>
+    <ol class="steps">
+      <li><span><b>Step title</b>What happens in this step.</span></li>
+      <li><span><b>Step title</b>What happens in this step.</span></li>
+    </ol>
+
+    <div class="note">A highlighted note, e.g. dates or a deadline.</div>
+  </div>
+</section>
+
+<!-- page 2: form building blocks -->
+<section class="page continued">
+  <div class="body">
+    <h1>Document title (continued)</h1>
+
+    <h2>Fields to fill in</h2>
+    <div class="fields">
+      <div class="fieldrow"><span>Name</span><span class="box"></span></div>
+      <div class="fieldrow"><span>Email</span><span class="box"></span></div>
+    </div>
+
+    <h2>Tick boxes</h2>
+    <ul>
+      <li>An option to tick</li>
+      <li>An option with a field: <span class="box"></span></li>
+    </ul>
+    <div class="detail"><span>Larger box to describe something</span><div class="box xl"></div></div>
+
+    <div class="comments"><p>Comments</p><div class="box tall"></div></div>
+
+    <div class="declaration">
+      <h2>Declaration</h2>
+      <p>Text above the signature lines.</p>
+      <div class="sign"><span>Place and date</span><span>Name</span><span>Signature</span></div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
